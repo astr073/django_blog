@@ -1,0 +1,11 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block content %}
+    <h3>{{ tag.title }}</h3>
+    <p>{{ tag.body }}</p>
+    <form method="post" action="{% url 'tag_delete_url' slug=tag.slug %}">
+        {% csrf_token %}
+    <button type="submit" class="button">delete</button>
+    </form>
+
+{% endblock %}
